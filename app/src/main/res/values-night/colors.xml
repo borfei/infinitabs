@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="blue_primary">#9CCAFF</color>
+  <color name="blue_on_primary">#00325A</color>
+  <color name="blue_primary_container">#00497F</color>
+  <color name="blue_on_primary_container">#D0E4FF</color>
+  <color name="blue_primary_inverse">#0061A6</color>
+  <color name="blue_secondary">#BBC8DB</color>
+  <color name="blue_on_secondary">#253140</color>
+  <color name="blue_secondary_container">#3C4858</color>
+  <color name="blue_on_secondary_container">#D6E3F7</color>
+  <color name="blue_tertiary">#D6BEE4</color>
+  <color name="blue_on_tertiary">#3B2948</color>
+  <color name="blue_tertiary_container">#523F5F</color>
+  <color name="blue_on_tertiary_container">#F3DAFF</color>
+  <color name="blue_error">#FFB4A9</color>
+  <color name="blue_error_container">#930006</color>
+  <color name="blue_on_error">#680003</color>
+  <color name="blue_on_error_container">#FFDAD4</color>
+  <color name="blue_surface">#1B1B1B</color>
+  <color name="blue_on_surface">#E2E2E6</color>
+  <color name="blue_surface_variant">#42474E</color>
+  <color name="blue_on_surface_variant">#C3C7D0</color>
+  <color name="blue_surface_inverse">#E2E2E6</color>
+  <color name="blue_on_surface_inverse">#2F3033</color>
+</resources>

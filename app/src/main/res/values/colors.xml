@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="blue_primary">#0061A6</color>
+  <color name="blue_on_primary">#FFFFFF</color>
+  <color name="blue_primary_container">#D0E4FF</color>
+  <color name="blue_on_primary_container">#001D36</color>
+  <color name="blue_primary_inverse">#9CCAFF</color>
+  <color name="blue_secondary">#535F70</color>
+  <color name="blue_on_secondary">#FFFFFF</color>
+  <color name="blue_secondary_container">#D6E3F7</color>
+  <color name="blue_on_secondary_container">#101C2B</color>
+  <color name="blue_tertiary">#6B5778</color>
+  <color name="blue_on_tertiary">#FFFFFF</color>
+  <color name="blue_tertiary_container">#F3DAFF</color>
+  <color name="blue_on_tertiary_container">#251432</color>
+  <color name="blue_error">#BA1B1B</color>
+  <color name="blue_error_container">#FFDAD4</color>
+  <color name="blue_on_error">#FFFFFF</color>
+  <color name="blue_on_error_container">#410001</color>
+  <color name="blue_surface">#FDFCFF</color>
+  <color name="blue_on_surface">#1B1B1B</color>
+  <color name="blue_surface_variant">#DFE2EB</color>
+  <color name="blue_on_surface_variant">#42474E</color>
+  <color name="blue_surface_inverse">#2F3033</color>
+  <color name="blue_on_surface_inverse">#F1F0F4</color>
+
+  <!-- Fix dumb SW Pro injection -->
+  <color name="colorPrimary">?attr/colorPrimary</color>
+  <color name="colorPrimaryDark">?attr/colorPrimaryDark</color>
+  <color name="colorAccent">?attr/colorAccent</color>
+  <color name="colorControlHighlight">?attr/colorControlHighlight</color>
+  <color name="colorControlNormal">?attr/colorControlNormal</color>
+</resources>

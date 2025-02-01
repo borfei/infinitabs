@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="Theme.Base" parent="Theme.Material3.DynamicColors.DayNight">
+    <!-- Material configuration -->
+    <item name="colorOutline">@color/overlay_stroke</item>
+
+    <!-- Fix dumb default Android configuration -->
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="colorControlHighlight">@color/sel_compat_ripple</item>
+    <item name="colorControlNormal">?attr/colorOnSurfaceVariant</item>
+    <item name="colorControlActivated">?attr/colorPrimary</item>
+
+    <!-- Work around hard-coded text highlight colors in the default Material3 theme -->
+    <item name="android:textColorHighlight">@color/overlay_text_highlight</item>
+    <item name="android:textColorHighlightInverse">@color/overlay_text_highlight_inverse</item>
+  </style>
+  <style name="Theme.Base.App" parent="Theme.Base.Blue" />
+  <style name="Theme.Base.App.FullScreen" parent="Theme.Base.App">
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+  </style>
+</resources>
