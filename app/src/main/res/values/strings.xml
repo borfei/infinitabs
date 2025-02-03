@@ -1,3 +1,8 @@
 <resources>
 	<string name="app_name" translatable="false">InfiniTabs</string>
+    <string name="sadface">:(</string>
+    <string name="notab">Looks like you don\'t have any tab open.\nClick the plus (+) button to open a new tab!</string>
+    <string name="tabscounter_empty">0</string>
+    <string name="find">Find...</string>
+    <string name="urlbar_hint">Search or type web url</string>
 </resources>

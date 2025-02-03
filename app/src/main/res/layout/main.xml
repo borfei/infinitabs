@@ -31,7 +31,7 @@
 					android:paddingLeft="8dp"
 					android:paddingTop="8dp"
 					android:paddingRight="8dp"
-					android:text=":("
+					android:text="@string/sadface"
 					android:textSize="60sp"
 					 
 					android:fontFamily="@font/inter_variable" />
@@ -53,7 +53,7 @@
 					android:paddingRight="8dp"
 					android:paddingBottom="8dp"
 					android:gravity="center_horizontal"
-					android:text="Looks like you don't have any tab open.\nClick the plus (+) button to open a new tab!"
+					android:text="@string/notab"
 					android:textSize="14sp"
 					 
 					android:fontFamily="@font/inter_variable" />
@@ -114,7 +114,7 @@
 						android:layout_width="30dp"
 						android:layout_height="30dp"
 						android:gravity="center_horizontal|center_vertical"
-						android:text="0"
+						android:text="@string/tabscounter_empty"
 						android:textSize="12sp"
 						android:textStyle="bold"
 						android:fontFamily="@font/inter_variable"
@@ -131,7 +131,7 @@
 			<androidx.coordinatorlayout.widget.CoordinatorLayout
 				android:id="@+id/coordinatorlayout"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
+				android:layout_height="0dp"
 				android:layout_weight="1">
 				<LinearLayout
 					android:id="@+id/wv_placeholder"
@@ -155,12 +155,14 @@
 				android:orientation="horizontal">
 				<EditText
 					android:id="@+id/findbar_input"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:padding="8dp"
+                    android:autofillHints="none"
+                    android:inputType="none"
+                    android:padding="8dp"
 					android:textSize="16sp"
 					 
-					android:hint="Find..."
+					android:hint="@string/find"
 					 
 					android:layout_weight="1"
 					android:fontFamily="@font/inter_variable" />
@@ -221,12 +223,12 @@
 					android:orientation="horizontal">
 					<EditText
 						android:id="@+id/urlbar"
-						android:layout_width="wrap_content"
+						android:layout_width="0dp"
 						android:layout_height="wrap_content"
 						android:padding="8dp"
 						android:textSize="16sp"
 						 
-						android:hint="Search or type web url"
+						android:hint="@string/urlbar_hint"
 						 
 						android:singleLine="true"
 						android:imeOptions="actionSearch"
@@ -265,7 +267,7 @@
 							android:layout_width="30dp"
 							android:layout_height="30dp"
 							android:gravity="center_horizontal|center_vertical"
-							android:text="0"
+							android:text="@string/tabscounter_empty"
 							android:textSize="12sp"
 							android:textStyle="bold"
 							android:fontFamily="@font/inter_variable"
@@ -283,4 +285,4 @@ android:src="@drawable/ic_add_24"
 		android:layout_height="wrap_content"
 		android:layout_margin="8dp"
 		android:layout_gravity="center_horizontal|bottom" />
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
