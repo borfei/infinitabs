@@ -9,6 +9,7 @@ import android.net.*;
 import android.os.*;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.*;
 import android.view.View;
 import android.view.View.*;
@@ -364,7 +365,12 @@ public class MainActivity extends AppCompatActivity {
 		_earlyInit();
 		tabs_list.setAdapter(new ListAdapter(webviews));
 		query_list.setAdapter(new Query_listAdapter(listQueries));
-		isIncognito = getIntent().getExtras().getBoolean("incognito", false);
+		isIncognito = false;
+		try {
+            isIncognito = Objects.requireNonNull(getIntent().getExtras()).getBoolean("incognito", isIncognito);
+		} catch (NullPointerException exception) {
+			Log.w("MainActivity", "An exception occurred: " + exception.getMessage());
+		}
 		if (isIncognito) {
 			incognito_button.setVisibility(View.GONE);
 			sadface_text.setVisibility(View.GONE);
