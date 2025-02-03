@@ -38,6 +38,7 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.swiperefreshlayout)
     implementation(libs.okhttp)
+    implementation(libs.exifinterface)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
