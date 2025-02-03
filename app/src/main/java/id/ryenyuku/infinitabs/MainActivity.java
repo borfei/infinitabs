@@ -29,6 +29,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.webkit.*;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -796,7 +797,7 @@ public class MainActivity extends AppCompatActivity {
 	
 	@SuppressLint("SetJavaScriptEnabled")
     public void _newTab(final String _url, final WebView _view) {
-		// Initialise a webview
+		// Initialise a web view
 		WebView webview;
 		if (_view == null) {
 			webview = new WebView(MainActivity.this);
@@ -818,10 +819,9 @@ public class MainActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 webSettings.setSafeBrowsingEnabled(false);
             }
-            cookieManager.setAcceptCookie(false);
+			cookieManager.setAcceptCookie(false);
 			cookieManager.setAcceptThirdPartyCookies(webview, false);
-		}
-		else {
+		} else {
 			webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
 			webSettings.setDomStorageEnabled(true);
 			webSettings.setDatabaseEnabled(true);
@@ -836,11 +836,15 @@ public class MainActivity extends AppCompatActivity {
 		webSettings.setMediaPlaybackRequiresUserGesture(!ENABLE_AUTOPLAY);
 		webSettings.setJavaScriptEnabled(ENABLE_JAVASCRIPT);
 		webSettings.setSupportMultipleWindows(true);
+		// Enable automatic color scheme if possible
+		if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
+			WebSettingsCompat.setAlgorithmicDarkeningAllowed(webSettings, true);
+		}
 		// Load the url
 		if (_url != null) {
 			webview.loadUrl(_url);
 		}
-		// Add the webview to the array
+		// Add the web view to the array
 		webViewList.add(webview);
 		((BaseAdapter)tabs_list.getAdapter()).notifyDataSetChanged();
 		_refreshTabsCount();

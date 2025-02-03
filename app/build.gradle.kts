@@ -39,6 +39,7 @@ dependencies {
     implementation(libs.swiperefreshlayout)
     implementation(libs.okhttp)
     implementation(libs.exifinterface)
+    implementation(libs.webkit)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
