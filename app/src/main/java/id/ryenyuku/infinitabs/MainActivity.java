@@ -29,7 +29,6 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.webkit.*;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -109,25 +108,25 @@ public class MainActivity extends AppCompatActivity {
 		sadFace_text = findViewById(R.id.sadface_text);
 		incognito_image = findViewById(R.id.incognito_image);
         incognito_button = findViewById(R.id.incognito_button);
-        tabsCounter_text1 = findViewById(R.id.tabscounter_text1);
-        linear_findBar = findViewById(R.id.linear_findbar);
-		linear_chromeBar = findViewById(R.id.linear_chromebar);
+        tabsCounter_text1 = findViewById(R.id.tabs_counter_text1);
+        linear_findBar = findViewById(R.id.linear_find_bar);
+		linear_chromeBar = findViewById(R.id.linear_chrome_bar);
 		wv_placeholder = findViewById(R.id.wv_placeholder);
 		query_list = findViewById(R.id.query_list);
-		findBar_input = findViewById(R.id.findbar_input);
-		findBar_findPrev_button = findViewById(R.id.findbar_findprev_button);
-		findBar_findNext_button = findViewById(R.id.findbar_findnext_button);
+		findBar_input = findViewById(R.id.find_bar_input);
+		findBar_findPrev_button = findViewById(R.id.find_bar_find_prev_button);
+		findBar_findNext_button = findViewById(R.id.find_bar_find_next_button);
 		wv_progressbar = findViewById(R.id.wv_progressbar);
-        urlBar = findViewById(R.id.urlbar);
+        urlBar = findViewById(R.id.url_bar);
 		refresh_button = findViewById(R.id.refresh_button);
 		forward_button = findViewById(R.id.forward_button);
-		tabsCounter_text2 = findViewById(R.id.tabscounter_text2);
+		tabsCounter_text2 = findViewById(R.id.tabs_counter_text2);
 		sharedPref = getSharedPreferences("data", Activity.MODE_PRIVATE);
 		reqNet = new RequestNetwork(this);
 
 		ImageView settings_button = findViewById(R.id.settings_button);
-		ImageView findBar_close_button = findViewById(R.id.findbar_close_button);
-		LinearLayout tabsCounter_linear2 = findViewById(R.id.tabscounter_linear2);
+		ImageView findBar_close_button = findViewById(R.id.find_bar_close_button);
+		LinearLayout tabsCounter_linear2 = findViewById(R.id.tabs_counter_linear2);
 
 		tabs_list.setOnItemClickListener((_param1, _param2, _param3, _param4) -> {
             _goToWebScreen(_param3);
@@ -673,7 +672,7 @@ public class MainActivity extends AppCompatActivity {
 
 			final ImageView thumb_image = _v.findViewById(R.id.thumb_image);
 			final TextView title_text = _v.findViewById(R.id.title_text);
-			final ImageView delete_button = _v.findViewById(R.id.delete_button);
+			final ImageView delete_button = _v.findViewById(R.id.close_button);
 			// Set the title and favicon to their web view's title and favicon
 			title_text.setText(webViewList.get(_position).getTitle());
 			if (webViewList.get(_position).getFavicon() == null) {
@@ -877,8 +876,7 @@ public class MainActivity extends AppCompatActivity {
 			if (_view == null) {
 				_view = _inflater.inflate(R.layout.search_queries, null);
 			}
-			
-			final LinearLayout linear_root = _view.findViewById(R.id.linear_root);
+
 			final ImageView thumb_image = _view.findViewById(R.id.thumb_image);
             final TextView title_text = _view.findViewById(R.id.title_text);
 			final TextView subtitle_text = _view.findViewById(R.id.subtitle_text);

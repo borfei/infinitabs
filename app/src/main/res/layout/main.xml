@@ -1,7 +1,4 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/_coordinator"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
@@ -31,7 +28,7 @@
 					android:paddingLeft="8dp"
 					android:paddingTop="8dp"
 					android:paddingRight="8dp"
-					android:text="@string/sadface"
+					android:text="@string/sad_face_text"
 					android:textSize="60sp"
 					 
 					android:fontFamily="@font/inter_variable" />
@@ -42,21 +39,20 @@
 					android:layout_marginLeft="8dp"
 					android:layout_marginTop="8dp"
 					android:layout_marginRight="8dp"
-					 
-					android:scaleType="fitCenter"
+                    android:contentDescription="@string/incognito_image_content_desc"
+                    android:scaleType="fitCenter"
 					android:src="@drawable/ic_incognito_circle_24" />
 				<TextView
-					android:id="@+id/notab_text"
+					android:id="@+id/no_tab_text"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:paddingLeft="8dp"
 					android:paddingRight="8dp"
 					android:paddingBottom="8dp"
+					android:fontFamily="@font/inter_variable"
 					android:gravity="center_horizontal"
-					android:text="@string/notab"
-					android:textSize="14sp"
-					 
-					android:fontFamily="@font/inter_variable" />
+					android:text="@string/empty_tab_list_text"
+					android:textSize="14sp" />
 			</LinearLayout>
 			<ListView
 				android:id="@+id/tabs_list"
@@ -79,11 +75,11 @@
 					android:layout_width="30dp"
 					android:layout_height="30dp"
 					android:layout_margin="6dp"
-					android:padding="4dp"
-					 
+					android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/settings_button_content_desc"
+                    android:padding="4dp"
 					android:scaleType="centerInside"
-					android:src="@drawable/ic_settings_24"
-					android:background="?attr/selectableItemBackgroundBorderless" />
+					android:src="@drawable/ic_settings_24" />
 				<LinearLayout
 					android:id="@+id/spacing_linear"
 					android:layout_width="0dp"
@@ -96,13 +92,13 @@
 					android:layout_width="30dp"
 					android:layout_height="30dp"
 					android:layout_margin="6dp"
-					android:padding="4dp"
-					 
+					android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/incognito_button_content_desc"
+                    android:padding="4dp"
 					android:scaleType="centerInside"
-					android:src="@drawable/ic_incognito_24"
-					android:background="?attr/selectableItemBackgroundBorderless" />
+					android:src="@drawable/ic_incognito_24" />
 				<LinearLayout
-					android:id="@+id/tabscounter_linear1"
+					android:id="@+id/tabs_counter_linear1"
 					android:layout_width="30dp"
 					android:layout_height="30dp"
 					android:layout_margin="6dp"
@@ -110,11 +106,11 @@
 					android:orientation="vertical"
 					android:background="?attr/selectableItemBackgroundBorderless">
 					<TextView
-						android:id="@+id/tabscounter_text1"
+						android:id="@+id/tabs_counter_text1"
 						android:layout_width="30dp"
 						android:layout_height="30dp"
 						android:gravity="center_horizontal|center_vertical"
-						android:text="@string/tabscounter_empty"
+						android:text="@string/tab_counter_empty_text"
 						android:textSize="12sp"
 						android:textStyle="bold"
 						android:fontFamily="@font/inter_variable"
@@ -147,62 +143,60 @@
 					android:stackFromBottom="true" />
 			</androidx.coordinatorlayout.widget.CoordinatorLayout>
 			<LinearLayout
-				android:id="@+id/linear_findbar"
+				android:id="@+id/linear_find_bar"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:padding="8dp"
 				android:gravity="center_vertical"
 				android:orientation="horizontal">
 				<EditText
-					android:id="@+id/findbar_input"
+					android:id="@+id/find_bar_input"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
+					android:layout_weight="1"
                     android:autofillHints="none"
+					android:fontFamily="@font/inter_variable"
                     android:inputType="none"
                     android:padding="8dp"
 					android:textSize="16sp"
-					 
-					android:hint="@string/find"
-					 
-					android:layout_weight="1"
-					android:fontFamily="@font/inter_variable" />
+					android:hint="@string/find_text" />
 				<ImageView
-					android:id="@+id/findbar_findprev_button"
+					android:id="@+id/find_bar_find_prev_button"
 					android:layout_width="30dp"
 					android:layout_height="30dp"
 					android:layout_margin="6dp"
-					android:padding="4dp"
-					 
-					android:scaleType="centerInside"
-					android:enabled="false"
 					android:alpha="0.5"
-					android:src="@drawable/ic_expand_less_24"
-					android:background="?attr/selectableItemBackgroundBorderless" />
-				<ImageView
-					android:id="@+id/findbar_findnext_button"
-					android:layout_width="30dp"
-					android:layout_height="30dp"
-					android:layout_margin="6dp"
-					android:padding="4dp"
-					 
-					android:scaleType="centerInside"
+					android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/find_bar_find_prev_button_content_desc"
+                    android:padding="4dp"
 					android:enabled="false"
-					android:alpha="0.5"
-					android:src="@drawable/ic_expand_more_24"
-					android:background="?attr/selectableItemBackgroundBorderless" />
+					android:scaleType="centerInside"
+					android:src="@drawable/ic_expand_less_24" />
 				<ImageView
-					android:id="@+id/findbar_close_button"
+					android:id="@+id/find_bar_find_next_button"
 					android:layout_width="30dp"
 					android:layout_height="30dp"
 					android:layout_margin="6dp"
+					android:alpha="0.5"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+					android:enabled="false"
+					android:contentDescription="@string/find_bar_find_next_button_content_desc"
 					android:padding="4dp"
-					 
 					android:scaleType="centerInside"
-					android:src="@drawable/ic_close_24"
-					android:background="?attr/selectableItemBackgroundBorderless" />
+					android:src="@drawable/ic_expand_more_24" />
+				<ImageView
+					android:id="@+id/find_bar_close_button"
+					android:layout_width="30dp"
+					android:layout_height="30dp"
+					android:layout_margin="6dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+					android:contentDescription="@string/find_bar_close_button_content_desc"
+					android:padding="4dp"
+					android:scaleType="centerInside"
+					android:src="@drawable/ic_close_24" />
 			</LinearLayout>
 			<LinearLayout
-				android:id="@+id/linear_chromebar"
+				android:id="@+id/linear_chrome_bar"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:orientation="vertical">
@@ -222,40 +216,40 @@
 					android:gravity="center_vertical"
 					android:orientation="horizontal">
 					<EditText
-						android:id="@+id/urlbar"
+						android:id="@+id/url_bar"
 						android:layout_width="0dp"
 						android:layout_height="wrap_content"
-						android:padding="8dp"
-						android:textSize="16sp"
-						 
-						android:hint="@string/urlbar_hint"
-						 
-						android:singleLine="true"
-						android:imeOptions="actionSearch"
 						android:layout_weight="1"
-						android:fontFamily="@font/inter_variable" />
+                        android:autofillHints="none"
+						android:fontFamily="@font/inter_variable"
+						android:hint="@string/url_bar_hint"
+						android:imeOptions="actionSearch"
+                        android:inputType="textUri"
+                        android:padding="8dp"
+						android:singleLine="true"
+						android:textSize="16sp" />
 					<ImageView
 						android:id="@+id/refresh_button"
 						android:layout_width="30dp"
 						android:layout_height="30dp"
 						android:layout_margin="6dp"
-						android:padding="4dp"
-						 
+						android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/refresh_button_content_desc"
+                        android:padding="4dp"
 						android:scaleType="centerInside"
-						android:src="@drawable/ic_refresh_24"
-						android:background="?attr/selectableItemBackgroundBorderless" />
+						android:src="@drawable/ic_refresh_24" />
 					<ImageView
 						android:id="@+id/forward_button"
 						android:layout_width="30dp"
 						android:layout_height="30dp"
 						android:layout_margin="6dp"
-						android:padding="4dp"
-						 
+						android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/forward_button_content_desc"
+                        android:padding="4dp"
 						android:scaleType="centerInside"
-						android:src="@drawable/ic_arrow_forward_24"
-						android:background="?attr/selectableItemBackgroundBorderless" />
+						android:src="@drawable/ic_arrow_forward_24" />
 					<LinearLayout
-						android:id="@+id/tabscounter_linear2"
+						android:id="@+id/tabs_counter_linear2"
 						android:layout_width="30dp"
 						android:layout_height="30dp"
 						android:layout_margin="6dp"
@@ -263,11 +257,11 @@
 						android:orientation="vertical"
 						android:background="?attr/selectableItemBackgroundBorderless">
 						<TextView
-							android:id="@+id/tabscounter_text2"
+							android:id="@+id/tabs_counter_text2"
 							android:layout_width="30dp"
 							android:layout_height="30dp"
 							android:gravity="center_horizontal|center_vertical"
-							android:text="@string/tabscounter_empty"
+							android:text="@string/tab_counter_empty_text"
 							android:textSize="12sp"
 							android:textStyle="bold"
 							android:fontFamily="@font/inter_variable"
@@ -279,10 +273,11 @@
 		</LinearLayout>
 	</LinearLayout>
 	<com.google.android.material.floatingactionbutton.FloatingActionButton
-android:src="@drawable/ic_add_24"
 		android:id="@+id/_fab"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_margin="8dp"
-		android:layout_gravity="center_horizontal|bottom" />
+		android:layout_gravity="center_horizontal|bottom"
+		android:contentDescription="@string/fab_content_desc"
+		android:src="@drawable/ic_add_24" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
