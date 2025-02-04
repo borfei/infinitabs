@@ -882,7 +882,7 @@ public class MainActivity extends AppCompatActivity {
 			final TextView subtitle_text = _view.findViewById(R.id.subtitle_text);
 
 			final Object isUrl = Objects.requireNonNull(_data.get(_position).get("isURL"));
-			title_text.setText(Objects.requireNonNull(_data.get((int) _position).get("query")).toString());
+			title_text.setText(Objects.requireNonNull(_data.get(_position).get("query")).toString());
 			if (_data.get(_position).containsKey("isURL") && (boolean)isUrl) {
 				thumb_image.setImageResource(R.drawable.ic_language_24);
 				String tmpParsedUrl = _validateUrl((String)_data.get(_position).get("query"));
