@@ -827,7 +827,7 @@ public class MainActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 webSettings.setSafeBrowsingEnabled(true);
             }
-            cookieManager.setAcceptCookie(true);
+			cookieManager.setAcceptCookie(true);
 			cookieManager.setAcceptThirdPartyCookies(webview, true);
 		}
 		webSettings.setBuiltInZoomControls(true);
