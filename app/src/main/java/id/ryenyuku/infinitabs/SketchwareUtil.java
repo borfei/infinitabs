@@ -145,7 +145,7 @@ public class SketchwareUtil {
 
     public static void hideKeyboard(Context _context) {
         InputMethodManager _inputMethodManager = (InputMethodManager) _context.getSystemService(Context.INPUT_METHOD_SERVICE);
-        _inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+        // _inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
     }
     
     public static void showKeyboard(Context _context) {
