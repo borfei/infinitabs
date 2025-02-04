@@ -836,10 +836,6 @@ public class MainActivity extends AppCompatActivity {
 		webSettings.setMediaPlaybackRequiresUserGesture(!ENABLE_AUTOPLAY);
 		webSettings.setJavaScriptEnabled(ENABLE_JAVASCRIPT);
 		webSettings.setSupportMultipleWindows(true);
-		// Enable automatic color scheme if possible
-		if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
-			WebSettingsCompat.setAlgorithmicDarkeningAllowed(webSettings, true);
-		}
 		// Load the url
 		if (_url != null) {
 			webview.loadUrl(_url);
