@@ -25,11 +25,4 @@
   <color name="blue_on_surface_variant">#42474E</color>
   <color name="blue_surface_inverse">#2F3033</color>
   <color name="blue_on_surface_inverse">#F1F0F4</color>
-
-  <!-- Fix dumb SW Pro injection -->
-  <color name="colorPrimary">?attr/colorPrimary</color>
-  <color name="colorPrimaryDark">?attr/colorPrimaryDark</color>
-  <color name="colorAccent">?attr/colorAccent</color>
-  <color name="colorControlHighlight">?attr/colorControlHighlight</color>
-  <color name="colorControlNormal">?attr/colorControlNormal</color>
 </resources>
