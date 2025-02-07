@@ -3,6 +3,7 @@
     <string name="sad_face_text">:(</string>
     <string name="empty_tab_list_text">Looks like you don\'t have any tab open.\nClick the plus (+) button to open a new tab!</string>
     <string name="tab_counter_empty_text">0</string>
+    <string name="tab_counter_max_text">:D</string>
     <string name="find_text">Find…</string>
     <string name="url_bar_hint">Search or type web url</string>
     <string name="thumb_image_content_desc">Thumbnail image</string>
@@ -16,4 +17,6 @@
     <string name="refresh_button_content_desc">Refresh page</string>
     <string name="forward_button_content_desc">Forward to next page</string>
     <string name="fab_content_desc">Add new tab</string>
+
+    <string name="web_view_request_handler_not_found">No supported application found to handle this operation.</string>
 </resources>

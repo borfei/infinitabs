@@ -27,12 +27,12 @@
 		android:textSize="14sp" />
 	<ImageView
 		android:id="@+id/close_button"
-        android:contentDescription="@string/close_button_content_desc"
-        android:focusable="false"
 		android:layout_width="30dp"
 		android:layout_height="30dp"
 		android:layout_margin="6dp"
 		android:background="?attr/selectableItemBackgroundBorderless"
+		android:contentDescription="@string/close_button_content_desc"
+		android:focusable="false"
 		android:padding="4dp"
 		android:scaleType="centerInside"
 		android:src="@drawable/ic_close_24" />

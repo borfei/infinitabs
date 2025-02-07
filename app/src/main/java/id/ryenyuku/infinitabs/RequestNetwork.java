@@ -8,7 +8,7 @@ public class RequestNetwork {
 	private HashMap<String, Object> params = new HashMap<>();
 	private HashMap<String, Object> headers = new HashMap<>();
 	
-	private Activity activity;
+	private final Activity activity;
 	
 	private int requestType = 0;
 	
@@ -46,7 +46,7 @@ public class RequestNetwork {
 	}
 	
 	public interface RequestListener {
-		public void onResponse(String tag, String response, HashMap<String, Object> responseHeaders);
-		public void onErrorResponse(String tag, String message);
+		void onResponse(String tag, String response, HashMap<String, Object> responseHeaders);
+		void onErrorResponse(String tag, String message);
 	}
 }

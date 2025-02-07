@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.exifinterface)
     implementation(libs.webkit)
+    implementation(libs.activity)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

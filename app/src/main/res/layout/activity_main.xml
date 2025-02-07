@@ -1,5 +1,4 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/_coordinator"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 	<LinearLayout
@@ -12,26 +11,25 @@
 			android:layout_height="match_parent"
 			android:orientation="vertical">
 			<LinearLayout
-				android:id="@+id/linear_notab"
+				android:id="@+id/linear_no_tab"
 				android:layout_width="match_parent"
 				android:layout_height="0dp"
+				android:layout_weight="1"
 				android:paddingLeft="8dp"
 				android:paddingTop="8dp"
 				android:paddingRight="8dp"
 				android:gravity="center_horizontal|center_vertical"
-				android:orientation="vertical"
-				android:layout_weight="1">
+				android:orientation="vertical">
 				<TextView
-					android:id="@+id/sadface_text"
+					android:id="@+id/sad_face_text"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:paddingLeft="8dp"
 					android:paddingTop="8dp"
 					android:paddingRight="8dp"
+					android:fontFamily="@font/inter_variable"
 					android:text="@string/sad_face_text"
-					android:textSize="60sp"
-					 
-					android:fontFamily="@font/inter_variable" />
+					android:textSize="60sp" />
 				<ImageView
 					android:id="@+id/incognito_image"
 					android:layout_width="80dp"
@@ -58,11 +56,10 @@
 				android:id="@+id/tabs_list"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:choiceMode="none"
 				android:layout_weight="1"
+				android:choiceMode="none"
 				android:stackFromBottom="true" />
 			<LinearLayout
-				android:id="@+id/linear_t"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:paddingLeft="8dp"
@@ -80,12 +77,9 @@
                     android:padding="4dp"
 					android:scaleType="centerInside"
 					android:src="@drawable/ic_settings_24" />
-				<LinearLayout
-					android:id="@+id/spacing_linear"
+				<Space
 					android:layout_width="0dp"
-					android:layout_height="1dp"
-					android:padding="8dp"
-					android:orientation="horizontal"
+					android:layout_height="match_parent"
 					android:layout_weight="1" />
 				<ImageView
 					android:id="@+id/incognito_button"
@@ -98,7 +92,7 @@
 					android:scaleType="centerInside"
 					android:src="@drawable/ic_incognito_24" />
 				<LinearLayout
-					android:id="@+id/tabs_counter_linear1"
+					android:id="@+id/tabs_counter"
 					android:layout_width="30dp"
 					android:layout_height="30dp"
 					android:layout_margin="6dp"
@@ -106,31 +100,29 @@
 					android:orientation="vertical"
 					android:background="?attr/selectableItemBackgroundBorderless">
 					<TextView
-						android:id="@+id/tabs_counter_text1"
+						android:id="@+id/tabs_counter_text"
 						android:layout_width="30dp"
 						android:layout_height="30dp"
-						android:gravity="center_horizontal|center_vertical"
+						android:background="@drawable/ic_check_box_outline_blank_24"
+						android:fontFamily="@font/inter_variable"
+						android:gravity="center"
 						android:text="@string/tab_counter_empty_text"
 						android:textSize="12sp"
-						android:textStyle="bold"
-						android:fontFamily="@font/inter_variable"
-						android:background="@drawable/ic_check_box_outline_blank_24"
-						android:textColor="?attr/colorControlNormal" />
+						android:textStyle="bold" />
 				</LinearLayout>
 			</LinearLayout>
 		</LinearLayout>
 		<LinearLayout
-			android:id="@+id/root_webview"
+			android:id="@+id/root_web_view"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:orientation="vertical">
 			<androidx.coordinatorlayout.widget.CoordinatorLayout
-				android:id="@+id/coordinatorlayout"
 				android:layout_width="match_parent"
 				android:layout_height="0dp"
 				android:layout_weight="1">
 				<LinearLayout
-					android:id="@+id/wv_placeholder"
+					android:id="@+id/web_view_placeholder"
 					android:layout_width="match_parent"
 					android:layout_height="match_parent"
 					android:orientation="vertical" />
@@ -138,8 +130,9 @@
 					android:id="@+id/query_list"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:choiceMode="none"
 					android:layout_gravity="bottom"
+					android:background="?android:colorBackground"
+					android:choiceMode="none"
 					android:stackFromBottom="true" />
 			</androidx.coordinatorlayout.widget.CoordinatorLayout>
 			<LinearLayout
@@ -200,14 +193,13 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:orientation="vertical">
-				<ProgressBar
-					android:id="@+id/wv_progressbar"
+
+				<com.google.android.material.progressindicator.LinearProgressIndicator
+					android:id="@+id/web_view_progress_indicator"
 					android:layout_width="match_parent"
-					android:layout_height="8dp"
-					android:indeterminate="false"
-					style="?android:progressBarStyleHorizontal" />
+					android:layout_height="wrap_content" />
 				<LinearLayout
-					android:id="@+id/linear_searchbar"
+					android:id="@+id/linear_url_bar"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:paddingLeft="8dp"
@@ -216,7 +208,7 @@
 					android:gravity="center_vertical"
 					android:orientation="horizontal">
 					<EditText
-						android:id="@+id/url_bar"
+						android:id="@+id/url_bar_input"
 						android:layout_width="0dp"
 						android:layout_height="wrap_content"
 						android:layout_weight="1"
@@ -249,7 +241,7 @@
 						android:scaleType="centerInside"
 						android:src="@drawable/ic_arrow_forward_24" />
 					<LinearLayout
-						android:id="@+id/tabs_counter_linear2"
+						android:id="@+id/web_view_tabs_counter"
 						android:layout_width="30dp"
 						android:layout_height="30dp"
 						android:layout_margin="6dp"
@@ -257,23 +249,23 @@
 						android:orientation="vertical"
 						android:background="?attr/selectableItemBackgroundBorderless">
 						<TextView
-							android:id="@+id/tabs_counter_text2"
+							android:id="@+id/web_view_tabs_counter_text"
 							android:layout_width="30dp"
 							android:layout_height="30dp"
+							android:background="@drawable/ic_check_box_outline_blank_24"
+							android:fontFamily="@font/inter_variable"
 							android:gravity="center_horizontal|center_vertical"
 							android:text="@string/tab_counter_empty_text"
 							android:textSize="12sp"
-							android:textStyle="bold"
-							android:fontFamily="@font/inter_variable"
-							android:background="@drawable/ic_check_box_outline_blank_24"
-							android:textColor="?attr/colorControlNormal" />
+							android:textStyle="bold" />
 					</LinearLayout>
 				</LinearLayout>
 			</LinearLayout>
 		</LinearLayout>
 	</LinearLayout>
+
 	<com.google.android.material.floatingactionbutton.FloatingActionButton
-		android:id="@+id/_fab"
+		android:id="@+id/fab"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_margin="8dp"

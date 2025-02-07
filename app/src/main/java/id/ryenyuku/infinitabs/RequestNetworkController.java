@@ -1,5 +1,9 @@
 package id.ryenyuku.infinitabs;
 
+import android.annotation.SuppressLint;
+
+import androidx.annotation.NonNull;
+
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -7,11 +11,10 @@ import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -55,16 +58,16 @@ public class RequestNetworkController {
 			OkHttpClient.Builder builder = new OkHttpClient.Builder();
 			
 			try {
-				final TrustManager[] trustAllCerts = new TrustManager[]{
+				@SuppressLint("CustomX509TrustManager") final TrustManager[] trustAllCerts = new TrustManager[]{
 					new X509TrustManager() {
-						@Override
-						public void checkClientTrusted(X509Certificate[] chain, String authType)
-						throws CertificateException {
+						@SuppressLint("TrustAllX509TrustManager")
+                        @Override
+						public void checkClientTrusted(X509Certificate[] chain, String authType) {
 						}
 						
-						@Override
-						public void checkServerTrusted(X509Certificate[] chain, String authType)
-						throws CertificateException {
+						@SuppressLint("TrustAllX509TrustManager")
+                        @Override
+						public void checkServerTrusted(X509Certificate[] chain, String authType) {
 						}
 						
 						@Override
@@ -81,14 +84,8 @@ public class RequestNetworkController {
 				builder.connectTimeout(SOCKET_TIMEOUT, TimeUnit.MILLISECONDS);
 				builder.readTimeout(READ_TIMEOUT, TimeUnit.MILLISECONDS);
 				builder.writeTimeout(READ_TIMEOUT, TimeUnit.MILLISECONDS);
-				builder.hostnameVerifier(new HostnameVerifier() {
-					@Override
-					public boolean verify(String hostname, SSLSession session) {
-						return true;
-					}
-				});
-			} catch (Exception e) {
-			}
+				builder.hostnameVerifier((hostname, session) -> true);
+			} catch (Exception ignored) {}
 			
 			client = builder.build();
 		}
@@ -100,26 +97,26 @@ public class RequestNetworkController {
 		Request.Builder reqBuilder = new Request.Builder();
 		Headers.Builder headerBuilder = new Headers.Builder();
 		
-		if (requestNetwork.getHeaders().size() > 0) {
+		if (!requestNetwork.getHeaders().isEmpty()) {
 			HashMap<String, Object> headers = requestNetwork.getHeaders();
 			
 			for (HashMap.Entry<String, Object> header : headers.entrySet()) {
 				headerBuilder.add(header.getKey(), String.valueOf(header.getValue()));
 			}
 		}
-		
+
 		try {
 			if (requestNetwork.getRequestType() == REQUEST_PARAM) {
 				if (method.equals(GET)) {
 					HttpUrl.Builder httpBuilder;
 					
 					try {
-						httpBuilder = HttpUrl.parse(url).newBuilder();
+						httpBuilder = Objects.requireNonNull(HttpUrl.parse(url)).newBuilder();
 					} catch (NullPointerException ne) {
-						throw new NullPointerException("unexpected url: " + url);
+						throw new NullPointerException("Unexpected url: " + url);
 					}
 					
-					if (requestNetwork.getParams().size() > 0) {
+					if (!requestNetwork.getParams().isEmpty()) {
 						HashMap<String, Object> params = requestNetwork.getParams();
 						
 						for (HashMap.Entry<String, Object> param : params.entrySet()) {
@@ -130,7 +127,8 @@ public class RequestNetworkController {
 					reqBuilder.url(httpBuilder.build()).headers(headerBuilder.build()).get();
 				} else {
 					FormBody.Builder formBuilder = new FormBody.Builder();
-					if (requestNetwork.getParams().size() > 0) {
+
+					if (!requestNetwork.getParams().isEmpty()) {
 						HashMap<String, Object> params = requestNetwork.getParams();
 						
 						for (HashMap.Entry<String, Object> param : params.entrySet()) {
@@ -139,7 +137,6 @@ public class RequestNetworkController {
 					}
 					
 					RequestBody reqBody = formBuilder.build();
-					
 					reqBuilder.url(url).headers(headerBuilder.build()).method(method, reqBody);
 				}
 			} else {
@@ -156,29 +153,25 @@ public class RequestNetworkController {
 			
 			getClient().newCall(req).enqueue(new Callback() {
 				@Override
-				public void onFailure(Call call, final IOException e) {
-					requestNetwork.getActivity().runOnUiThread(new Runnable() {
-						@Override
-						public void run() {
-							requestListener.onErrorResponse(tag, e.getMessage());
-						}
-					});
+				public void onFailure(@NonNull Call call, @NonNull final IOException e) {
+					requestNetwork.getActivity().runOnUiThread(() -> requestListener.onErrorResponse(tag, e.getMessage()));
 				}
 				
 				@Override
-				public void onResponse(Call call, final Response response) throws IOException {
-					final String responseBody = response.body().string().trim();
-					requestNetwork.getActivity().runOnUiThread(new Runnable() {
-						@Override
-						public void run() {
-							Headers b = response.headers();
-							HashMap<String, Object> map = new HashMap<>();
-							for (String s : b.names()) {
-								map.put(s, b.get(s) != null ? b.get(s) : "null");
-							}
-							requestListener.onResponse(tag, responseBody, map);
-						}
-					});
+				public void onResponse(@NonNull Call call, @NonNull final Response response) throws IOException {
+                    assert response.body() != null;
+                    final String responseBody = response.body().string().trim();
+
+					requestNetwork.getActivity().runOnUiThread(() -> {
+                        Headers b = response.headers();
+                        HashMap<String, Object> map = new HashMap<>();
+
+                        for (String s : b.names()) {
+                            map.put(s, b.get(s) != null ? b.get(s) : "null");
+                        }
+
+                        requestListener.onResponse(tag, responseBody, map);
+                    });
 				}
 			});
 		} catch (Exception e) {
