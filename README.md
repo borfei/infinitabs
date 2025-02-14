@@ -1,6 +1,12 @@
 # InfiniTabs
 Simple tabbed web browser, now in Material You.
 
+> [!WARNING]
+> InfiniTabs is an experimental web browser, should not be considered stable as of now.
+> If you want a good web browser for daily use, please look for alternatives instead.
+
+[Download nightly version](https://nightly.link/borfei/infinitabs/workflows/android/main/app-debug.zip)
+
 ## History
 This project was originally developed by [リェンーゆく](https://github.com/ryenyuku),
 with it's purpose as a web browsing example project for the now-defunct **Sketchware**.

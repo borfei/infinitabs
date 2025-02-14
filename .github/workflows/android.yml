@@ -24,10 +24,9 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
-    - name: Upload output
+    - name: Upload debug APK
       uses: actions/upload-artifact@v4
       with:
-          name: 'output'
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: app-debug
+          path: app/build/outputs/apk/debug/
           if-no-files-found: error
-          retention-days: 30
