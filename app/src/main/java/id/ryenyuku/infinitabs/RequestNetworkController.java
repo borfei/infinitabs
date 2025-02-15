@@ -8,7 +8,6 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.security.SecureRandom;
-import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.HashMap;
 import java.util.Objects;
@@ -140,7 +139,7 @@ public class RequestNetworkController {
 					reqBuilder.url(url).headers(headerBuilder.build()).method(method, reqBody);
 				}
 			} else {
-				RequestBody reqBody = RequestBody.create(MediaType.parse("application/json"), new Gson().toJson(requestNetwork.getParams()));
+				RequestBody reqBody = RequestBody.create(new Gson().toJson(requestNetwork.getParams()), MediaType.parse("application/json"));
 				
 				if (method.equals(GET)) {
 					reqBuilder.url(url).headers(headerBuilder.build()).get();
